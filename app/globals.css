@@ -1,0 +1,210 @@
+@import "tailwindcss";
+@config "../tailwind.config.js";
+
+:root { color-scheme: dark; }
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { margin: 0; background: #080d15; color: #e7edf4; font-family: Inter, "Segoe UI", system-ui, sans-serif; }
+button, a { font: inherit; }
+button:focus-visible, a:focus-visible { outline: 2px solid #64c7d3; outline-offset: 3px; }
+::selection { background: #62bfca; color: #061016; }
+.game-shell { background: radial-gradient(ellipse at 50% -20%, #14263a 0, #080d15 48rem); min-height:100vh; }
+.game-header { border-bottom:1px solid #ffffff12; background:#080d15ed; backdrop-filter:blur(16px); }
+.brand-icon { display:grid; width:40px; height:40px; place-items:center; color:#91d7df; border:1px solid #7dd0dd44; background:#10202b; }
+.xp-chip,.tool-toggle { display:inline-flex; align-items:center; gap:8px; min-height:36px; border:1px solid #ffffff18; background:#0d1520; padding:0 12px; color:#becbd7; font-size:12px; letter-spacing:.04em; }
+.xp-chip { color:#e8c77c; }
+.tool-toggle { cursor:pointer; }
+.tool-toggle:hover,.tool-toggle-active { border-color:#55b8c5aa; color:#a7e5e9; }
+.command-banner { position:relative; display:flex; min-height:260px; align-items:center; justify-content:space-between; gap:32px; overflow:hidden; border:1px solid #ffffff16; background:linear-gradient(105deg,#111e2b,#101822 58%,#13232c); padding:36px 42px; }
+.command-copy { position:relative; z-index:2; max-width:650px; }
+.eyebrow-game,.section-kicker { color:#80bdc7; font-size:10px; font-weight:700; letter-spacing:.17em; }
+.eyebrow-game { display:flex; align-items:center; gap:9px; }
+.command-copy h1 { margin:16px 0 10px; color:#f2f5f8; font-size:clamp(34px,4.5vw,58px); font-weight:650; letter-spacing:-.045em; line-height:1.04; }
+.command-copy p { max-width:570px; margin:0; color:#9caebc; font-size:15px; line-height:1.75; }
+.primary-action { display:inline-flex; align-items:center; gap:10px; margin-top:22px; border:1px solid #78c6cf66; background:#14313b; padding:11px 15px; color:#d3f0f1; font-size:13px; font-weight:650; }
+.primary-action:hover { background:#1b414b; }
+.campaign-status { position:relative; z-index:2; display:flex; width:300px; align-items:center; gap:16px; border-left:1px solid #ffffff1b; padding:18px 0 18px 26px; }
+.rank-emblem { display:grid; width:54px; height:54px; flex:none; place-items:center; border:1px solid #c7a96955; background:#332b1b; color:#e1c077; }
+.rank-copy { flex:1; }
+.rank-copy>span { display:block; color:#80909d; font-size:9px; letter-spacing:.17em; }
+.rank-copy>b { display:block; margin-top:5px; color:#e5c779; font-size:13px; letter-spacing:.04em; }
+.rank-copy small { color:#788995; font-size:10px; }
+.rank-track,.campaign-track { height:4px; overflow:hidden; background:#ffffff14; }
+.rank-track { margin:9px 0 7px; }
+.rank-track i,.campaign-track i { display:block; height:100%; background:#c8a966; }
+.solar-map-mini { position:absolute; top:-100px; right:330px; width:360px; height:360px; opacity:.3; }
+.map-orbit { position:absolute; inset:var(--r); border:1px solid #81bdc633; border-radius:50%; }
+.map-orbit b { position:absolute; top:0; left:50%; width:6px; height:6px; border-radius:50%; background:#80cbd3; }
+.o1 { --r:70px; }.o2 { --r:110px; }.o3 { --r:150px; }
+.map-sun { position:absolute; left:calc(50% - 13px); top:calc(50% - 13px); width:26px; height:26px; border-radius:50%; background:#d2ad60; }
+.mission-layout { display:grid; grid-template-columns:310px minmax(0,1fr); gap:22px; margin-top:24px; align-items:start; }
+.mission-sidebar,.briefing-panel,.field-map-panel { border:1px solid #ffffff16; background:#0e151f; }
+.mission-sidebar { padding:20px; }
+.zone-list { display:grid; gap:7px; margin-top:15px; }
+.zone-card { display:flex; width:100%; align-items:center; gap:11px; border:1px solid transparent; background:#ffffff04; padding:12px 10px; color:#cbd5df; text-align:left; cursor:pointer; }
+.zone-card:hover { background:#ffffff08; }
+.zone-selected { border-color:#55b8c555; background:#17313a; }
+.zone-symbol { display:grid; width:34px; height:34px; flex:none; place-items:center; border:1px solid #ffffff14; color:#8bcbd1; }
+.zone-copy { min-width:0; flex:1; }
+.zone-copy b,.zone-copy small { display:block; }
+.zone-copy b { color:#e2e9ef; font-size:13px; font-weight:600; }
+.zone-copy small { overflow:hidden; margin-top:3px; color:#80909e; font-size:10px; text-overflow:ellipsis; white-space:nowrap; }
+.zone-progress { color:#a3b4c0; font:11px ui-monospace,monospace; }
+.zone-lock { color:#627380; }
+.progress-panel { margin-top:18px; border-top:1px solid #ffffff15; padding-top:16px; color:#a5b4c0; font-size:10px; letter-spacing:.1em; }
+.progress-panel b { color:#e1c77f; font:600 12px ui-monospace,monospace; }
+.campaign-track { margin-top:11px; }.campaign-track i { background:linear-gradient(90deg,#4ba9b6,#a8d8cc); }
+.progress-panel p { margin:9px 0 0; color:#728391; font-size:11px; letter-spacing:0; line-height:1.5; }
+.field-note { display:flex; gap:10px; margin-top:16px; border:1px solid #ffffff12; background:#111c27; padding:12px; color:#90a2af; font-size:11px; line-height:1.55; }
+.field-note svg { flex:none; color:#86c6cb; }
+.briefing-panel { overflow:hidden; }
+.briefing-top { display:flex; justify-content:space-between; border-bottom:1px solid #ffffff13; background:#111b26; padding:17px 22px; }
+.mission-index { display:flex; align-items:baseline; gap:8px; margin-top:5px; color:#e5ebef; font:600 22px ui-monospace,monospace; }
+.mission-index span { color:#52616e; font-size:14px; }
+.mission-meta { display:flex; align-items:center; gap:15px; color:#94a4b1; font-size:11px; }
+.mission-meta span { display:flex; align-items:center; gap:6px; }.mission-meta svg { color:#87c5ca; }
+.briefing-content { padding:24px 26px 22px; }
+.briefing-title-row { display:flex; align-items:flex-start; justify-content:space-between; gap:15px; }
+.subject-label { color:#86c4ca; font-size:10px; font-weight:650; letter-spacing:.13em; text-transform:uppercase; }
+.briefing-title-row h2 { margin:8px 0 0; color:#f0f3f6; font-size:clamp(22px,3vw,32px); font-weight:620; letter-spacing:-.03em; }
+.status-stamp { display:inline-flex; flex:none; align-items:center; gap:6px; border:1px solid #b59d5d55; padding:6px 9px; color:#ddc17a; font-size:9px; font-weight:700; letter-spacing:.11em; }
+.stamp-done { border-color:#64bba666; color:#93d5bb; }
+.objective-box { margin-top:19px; border-left:2px solid #63b8c2; background:#14232d; padding:12px 15px; }
+.objective-box span,.vocab-head { color:#80bdc7; font-size:9px; font-weight:700; letter-spacing:.15em; }
+.objective-box p { margin:6px 0 0; color:#d3dde4; font-size:13px; line-height:1.6; }
+.lesson-text { margin:19px 0; color:#aebbc6; font-size:13px; line-height:1.85; }
+.vocabulary { border-top:1px solid #ffffff13; padding-top:15px; }
+.vocab-list { display:flex; flex-wrap:wrap; gap:7px; margin-top:10px; }
+.vocab-list span { border:1px solid #ffffff17; background:#ffffff04; padding:6px 9px; color:#a9b8c3; font-size:10px; }
+.challenge-box { margin-top:19px; border:1px solid #ae925244; background:#1d1b17; padding:15px; }
+.challenge-header { display:flex; align-items:flex-start; gap:11px; }
+.challenge-icon { display:grid; width:30px; height:30px; flex:none; place-items:center; border:1px solid #b9a26055; color:#e0c476; }
+.challenge-header small,.challenge-header b { display:block; }
+.challenge-header small { color:#c5a963; font-size:9px; font-weight:700; letter-spacing:.13em; }
+.challenge-header b { margin-top:5px; color:#e5e4df; font-size:13px; font-weight:550; line-height:1.55; }
+.answer-toggle { display:inline-flex; align-items:center; gap:5px; margin:12px 0 0 40px; border:0; background:transparent; color:#cdb873; font-size:11px; cursor:pointer; }
+.answer-panel { margin:13px 0 0 40px; border-left:1px solid #b59d5d66; padding-left:12px; }
+.answer-panel b { color:#d5bd78; font-size:9px; letter-spacing:.12em; }.answer-panel p { margin:5px 0 0; color:#aab4ba; font-size:12px; line-height:1.6; }
+.briefing-footer { display:flex; align-items:center; justify-content:space-between; gap:12px; margin-top:20px; border-top:1px solid #ffffff13; padding-top:16px; }
+.lesson-pager { display:flex; align-items:center; gap:12px; color:#71818e; font:11px ui-monospace,monospace; }
+.lesson-pager button { display:inline-flex; align-items:center; gap:3px; border:1px solid #ffffff19; background:#ffffff05; padding:8px 10px; color:#b1bec8; font-size:10px; cursor:pointer; }
+.lesson-pager button:disabled { opacity:.4; cursor:not-allowed; }
+.complete-button { display:inline-flex; align-items:center; gap:8px; border:1px solid #6dc3c877; background:#17343b; padding:10px 13px; color:#c5ebeb; font-size:11px; font-weight:650; cursor:pointer; }
+.complete-button:hover { background:#20464d; }.complete-done { border-color:#66b99855; background:#142720; color:#a4d5bb; cursor:default; }
+.field-map-panel { display:grid; grid-template-columns:.75fr 1fr; align-items:center; gap:28px; margin-top:22px; padding:25px; }
+.field-map-panel h2 { margin:10px 0 8px; color:#ebeff3; font-size:25px; font-weight:600; letter-spacing:-.03em; }
+.field-map-panel p { max-width:440px; margin:0; color:#91a1ae; font-size:12px; line-height:1.7; }
+.map-legend { display:flex; flex-wrap:wrap; gap:13px; margin-top:18px; color:#81919e; font-size:10px; }
+.map-legend span { display:flex; align-items:center; gap:6px; }.legend-dot { width:7px; height:7px; border-radius:50%; }.rocky { background:#55b7c3; }.giant { background:#cfaa69; }.ice { background:#8d9fda; }
+.orbital-figure { position:relative; display:grid; width:min(100%,380px); aspect-ratio:1; place-items:center; justify-self:center; }
+.orbit-guide { position:absolute; top:50%; left:50%; border:1px solid #9eb2c51c; border-radius:50%; transform:translate(-50%,-50%); }
+.orbit-guide i { position:absolute; top:0; left:50%; display:block; border-radius:50%; transform:translate(-50%,-50%); }
+.g1 { width:16%; height:16%; }.g2 { width:27%; height:27%; }.g3 { width:40%; height:40%; }.g4 { width:53%; height:53%; }.g5 { width:66%; height:66%; }.g6 { width:78%; height:78%; }.g7 { width:89%; height:89%; }.g8 { width:98%; height:98%; }
+.body.mercury { width:5px;height:5px;background:#a7a9a5; }.body.venus {width:7px;height:7px;background:#dec39a;}.body.earth {width:8px;height:8px;background:#48bed0;}.body.mars {width:6px;height:6px;background:#c8755f;}.body.jupiter {width:15px;height:15px;background:#c99a63;}.body.saturn {width:13px;height:13px;background:#d5c28f;}.body.saturn::after {content:"";position:absolute;inset:4px -5px;border:1px solid #dac98c;border-radius:50%;transform:rotate(-20deg);}.body.uranus {width:9px;height:9px;background:#7bbdc2;}.body.neptune {width:9px;height:9px;background:#667fd2;}
+.figure-sun { z-index:2; width:24px; height:24px; border-radius:50%; background:#d7ae5b; box-shadow:0 0 22px #d7ae5b55; }
+.figure-label { position:absolute; top:calc(50% + 18px); left:50%; transform:translateX(-50%); color:#bd9f5c; font-size:8px; letter-spacing:.18em; }
+.map-motion .orbit-guide { animation: orbit-spin 28s linear infinite; }.map-motion .g1 {animation-duration:5s}.map-motion .g2 {animation-duration:8s}.map-motion .g3 {animation-duration:11s}.map-motion .g4 {animation-duration:15s}.map-motion .g5 {animation-duration:22s}.map-motion .g6 {animation-duration:29s}.map-motion .g7 {animation-duration:37s}.map-motion .g8 {animation-duration:46s}
+@keyframes orbit-spin { to { rotate:360deg; } }
+.motion-enabled .briefing-enter { animation: panel-in .25s ease-out both; }
+@keyframes panel-in { from { opacity:.55; transform:translateY(5px); } to { opacity:1; transform:translateY(0); } }
+.game-footer { display:flex; justify-content:space-between; margin-top:20px; border-top:1px solid #ffffff14; padding-top:14px; color:#637482; font-size:9px; letter-spacing:.1em; }
+@media(max-width:950px) { .mission-layout { grid-template-columns:1fr; }.mission-sidebar { order:1; }.briefing-panel { order:0; }.zone-list { grid-template-columns:repeat(2,minmax(0,1fr)); }.field-map-panel { grid-template-columns:1fr; } }
+@media(max-width:600px) { .command-banner { display:block; padding:26px 20px; }.campaign-status { width:auto; margin-top:24px; border-left:0; border-top:1px solid #ffffff1b; padding:16px 0 0; }.solar-map-mini { right:-210px; top:-120px; }.zone-list { grid-template-columns:1fr; }.briefing-content { padding:18px 16px; }.briefing-footer { align-items:flex-start; flex-direction:column; }.lesson-pager { width:100%; justify-content:space-between; }.field-map-panel { padding:19px; }.mission-meta { flex-direction:column; align-items:flex-end; gap:6px; }.tool-toggle { padding:0 8px; font-size:10px; }.xp-chip { gap:4px; padding:0 7px; }.game-header>div { padding-inline:12px; } }
+@media(prefers-reduced-motion:reduce) { *,*::before,*::after { animation-duration:.01ms !important; animation-iteration-count:1 !important; scroll-behavior:auto !important; transition-duration:.01ms !important; } }
+
+.training-range,.glossary-panel { margin-top:22px; border:1px solid #ffffff16; background:#0e151f; padding:24px; }
+.training-heading,.glossary-top { display:flex; align-items:flex-end; justify-content:space-between; gap:18px; }
+.training-heading h2,.glossary-top h2 { margin:9px 0 6px; color:#edf2f5; font-size:25px; font-weight:600; letter-spacing:-.03em; }
+.training-heading p,.glossary-top p { max-width:640px; margin:0; color:#8fa1ae; font-size:12px; line-height:1.7; }
+.simulation-tag { display:flex; flex:none; align-items:center; gap:7px; border:1px solid #64bac255; padding:8px 10px; color:#92d0d2; font-size:9px; letter-spacing:.1em; }
+.training-grid { display:grid; grid-template-columns:1fr 1fr; gap:14px; margin-top:18px; }
+.sim-card { border:1px solid #ffffff14; background:#0a111a; padding:18px; }
+.sim-card-head { display:flex; align-items:center; justify-content:space-between; color:#8294a2; font-size:9px; letter-spacing:.14em; }
+.sim-number { color:#78c4ca; font:11px ui-monospace,monospace; }
+.sim-card h3 { margin:13px 0 5px; color:#e4ebef; font-size:18px; font-weight:600; }
+.sim-card>p { min-height:40px; margin:0; color:#899aa7; font-size:11px; line-height:1.6; }
+.moon-sim { position:relative; display:grid; height:190px; place-items:center; overflow:hidden; border:1px solid #ffffff12; background:radial-gradient(ellipse at center,#12212b,#0a1118 65%); margin-top:14px; }
+.sim-orbit-ring { position:absolute; width:144px; height:144px; border:1px dashed #85b9c72e; border-radius:50%; }
+.sim-earth { z-index:1; width:37px; height:37px; border-radius:50%; background:radial-gradient(circle at 32% 28%,#a5e5dc,#4389a6 48%,#172e63); box-shadow:0 0 18px #4c9bb444; }
+.sim-sun { position:absolute; right:18%; top:24%; width:22px; height:22px; border-radius:50%; background:#e0bd71; box-shadow:0 0 20px #dbb96c77; }
+.sim-moon-track { position:absolute; width:144px; height:144px; border-radius:50%; }
+.sim-moon-track i { position:absolute; top:0; left:50%; width:13px; height:13px; border-radius:50%; background:#d6dce1; box-shadow:0 0 12px #d6dce177; transform:translate(-50%,-50%); }
+.sim-sun-label { position:absolute; top:12px; right:10px; color:#bfa669; font-size:8px; letter-spacing:.14em; }
+.phase-switches { display:grid; grid-template-columns:repeat(4,1fr); gap:5px; margin-top:12px; }
+.phase-switches button { border:1px solid #ffffff14; background:#ffffff04; padding:8px 4px; color:#93a3ad; font-size:9px; cursor:pointer; }
+.phase-switches button:hover,.phase-switches button.phase-active { border-color:#65b8c266; background:#16303a; color:#c1e7e7; }
+.sim-observation { display:grid; gap:4px; margin-top:12px; border-left:2px solid #53aeb6; background:#111e28; padding:10px 12px; }
+.sim-observation b { color:#c5d8dc; font-size:10px; }.sim-observation span { color:#899ca8; font-size:10px; line-height:1.55; }
+.mass-control { display:block; margin-top:17px; color:#9babb6; font-size:11px; }
+.mass-control b { margin-left:7px; color:#e3c478; }.mass-control input { display:block; width:100%; margin-top:13px; accent-color:#68bbc3; }.mass-control>span { display:flex; justify-content:space-between; color:#6e808e; }
+.gravity-bars { display:grid; gap:12px; margin:21px 0 16px; }
+.gravity-row { display:grid; grid-template-columns:70px minmax(0,1fr) 48px; align-items:center; gap:9px; color:#a9b7c1; font-size:10px; }
+.gravity-row>b { color:#d5dfe5; font:11px ui-monospace,monospace; text-align:right; }
+.gravity-track { height:7px; overflow:hidden; background:#ffffff0e; }.gravity-track i { display:block; height:100%; background:linear-gradient(90deg,#478b9c,#d0ae69); }
+.glossary-top { align-items:center; }.glossary-top>input { width:min(250px,100%); border:1px solid #ffffff20; background:#090f17; padding:10px 12px; color:#e4edf2; font-size:11px; }.glossary-top>input::placeholder { color:#6d7e8b; }
+.glossary-grid { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:8px; margin-top:17px; }
+.glossary-grid article { min-height:115px; border:1px solid #ffffff12; background:#0a1119; padding:12px; }
+.glossary-grid article>span { color:#94d0d1; font-size:12px; font-weight:650; }.glossary-grid article p { margin:7px 0; color:#8798a4; font-size:10px; line-height:1.5; }.glossary-grid article small { color:#617785; font-size:9px; }
+.motion-enabled .orbit-motion .orbit-guide { animation: orbit-spin 28s linear infinite; }
+.motion-enabled .orbit-motion .g1 { animation-duration:5s; }.motion-enabled .orbit-motion .g2 { animation-duration:8s; }.motion-enabled .orbit-motion .g3 { animation-duration:11s; }.motion-enabled .orbit-motion .g4 { animation-duration:15s; }.motion-enabled .orbit-motion .g5 { animation-duration:22s; }.motion-enabled .orbit-motion .g6 { animation-duration:29s; }.motion-enabled .orbit-motion .g7 { animation-duration:37s; }.motion-enabled .orbit-motion .g8 { animation-duration:46s; }
+.motion-enabled .sim-motion .sim-moon-track { transition:transform .6s cubic-bezier(.2,.7,.2,1); }
+.motion-enabled .complete-done { animation: success-stamp .55s ease-out; }
+.motion-enabled .rank-emblem { animation: rank-glint 2.4s ease-in-out infinite; }
+.motion-enabled .briefing-enter { animation: panel-in .24s ease-out both; }
+@keyframes success-stamp { 0% { transform:scale(.93); } 65% { transform:scale(1.04); } 100% { transform:scale(1); } }
+@keyframes rank-glint { 0%,100% { box-shadow:0 0 0 #d2ad6000; } 50% { box-shadow:0 0 18px #d2ad6033; } }
+@media(max-width:950px) { .training-grid { grid-template-columns:1fr; }.glossary-grid { grid-template-columns:repeat(2,minmax(0,1fr)); } }
+@media(max-width:600px) { .training-range,.glossary-panel { padding:16px; }.training-heading,.glossary-top { align-items:stretch; flex-direction:column; }.simulation-tag { align-self:flex-start; }.phase-switches button { font-size:8px; }.glossary-grid { grid-template-columns:1fr 1fr; } }
+@media(prefers-reduced-motion:reduce) { *,*::before,*::after { animation:none !important; transition:none !important; } }
+
+
+.arena-panel { margin-top:22px; border:1px solid #ffffff16; background:#0e151f; padding:23px; }
+.arena-head { display:flex; align-items:center; justify-content:space-between; gap:20px; }
+.arena-head h2 { margin:9px 0 5px; color:#edf2f5; font-size:25px; font-weight:600; letter-spacing:-.03em; }
+.arena-head p { margin:0; color:#8fa1ae; font-size:12px; line-height:1.65; }
+.arena-score { display:grid; min-width:88px; justify-items:center; gap:4px; border:1px solid #b59d5d44; background:#1b1a16; padding:11px; color:#dfc277; }
+.arena-score span { color:#f0e7ce; font:600 16px ui-monospace,monospace; }.arena-score small { color:#9b8b62; font-size:8px; letter-spacing:.12em; }
+.arena-progress { display:grid; grid-template-columns:repeat(5,1fr); gap:5px; margin-top:20px; }.arena-progress i { height:3px; background:#ffffff18; }.arena-progress i.past,.arena-progress i.current { background:#69bec1; }
+.arena-question { max-width:850px; margin:20px auto 0; border:1px solid #ffffff12; background:#0a1119; padding:20px; }
+.arena-question>span { color:#82c6cb; font-size:9px; font-weight:700; letter-spacing:.14em; }
+.arena-question h3 { margin:10px 0 15px; color:#e7edf1; font-size:17px; font-weight:550; line-height:1.45; }
+.arena-options { display:grid; gap:7px; }
+.arena-options button { display:flex; min-height:42px; align-items:center; gap:11px; border:1px solid #ffffff17; background:#ffffff04; padding:9px 11px; color:#afbbc4; text-align:left; font-size:11px; cursor:pointer; }
+.arena-options button:hover:not(:disabled) { border-color:#6bbbc166; background:#12242d; }.arena-options button>b { display:grid; width:22px; height:22px; flex:none; place-items:center; border:1px solid #ffffff20; color:#95a7b3; font:10px ui-monospace,monospace; }
+.arena-options button.option-correct { border-color:#62b99b77; background:#12271f; color:#bce4ce; }.arena-options button.option-correct svg { margin-left:auto; }.arena-options button.option-wrong { border-color:#c16b6077; background:#2a1919; color:#e5b8b3; }
+.arena-explanation { margin-top:12px; border-left:2px solid #b99d57; background:#191912; padding:11px 13px; }.arena-explanation b { color:#e2c87c; font-size:10px; }.arena-explanation p { margin:5px 0 0; color:#a8b2b4; font-size:11px; line-height:1.6; }.explain-correct { border-color:#67b99a; background:#12211b; }.explain-correct b { color:#9ed4b8; }
+.arena-next { display:flex; align-items:center; gap:5px; margin:13px 0 0 auto; border:1px solid #67b8c255; background:#133039; padding:8px 11px; color:#c5e5e7; font-size:10px; cursor:pointer; }
+.achievement-row { display:flex; flex-wrap:wrap; align-items:center; gap:8px; margin-top:18px; border-top:1px solid #ffffff14; padding-top:14px; }.achievement-row>span { margin-right:5px; color:#82939f; font-size:9px; font-weight:700; letter-spacing:.15em; }
+.achievement { display:flex; align-items:center; gap:7px; border:1px solid #ffffff13; background:#0a1118; padding:8px 9px; color:#667784; }.achievement b { font-size:9px; font-weight:550; }.achievement small { color:#52616c; font-size:8px; letter-spacing:.08em; }.achievement-earned { border-color:#b49b5b55; color:#d9bd72; }.achievement-earned small { color:#c7aa63; }
+.motion-enabled .arena-score { animation: rank-glint 2.4s ease-in-out infinite; }.motion-enabled .arena-explanation { animation: panel-in .22s ease-out both; }
+@media(max-width:600px) { .arena-panel { padding:16px; }.arena-head { align-items:flex-start; }.arena-question { padding:14px; }.achievement { flex-wrap:wrap; }.achievement-row>span { flex-basis:100%; } }
+
+.star-lab,.reading-panel { margin-top:22px; border:1px solid #ffffff16; background:#0e151f; padding:23px; }
+.star-lab-header,.reading-header { display:flex; align-items:flex-end; justify-content:space-between; gap:20px; }
+.star-lab-header h2,.reading-header h2 { margin:9px 0 6px; color:#edf2f5; font-size:25px; font-weight:600; letter-spacing:-.03em; }
+.star-lab-header p,.reading-header p { max-width:650px; margin:0; color:#8fa1ae; font-size:12px; line-height:1.7; }
+.star-path-toggle { display:flex; flex:none; border:1px solid #ffffff16; background:#090f17; padding:3px; }
+.star-path-toggle button { border:0; background:transparent; padding:9px 11px; color:#80919e; font-size:10px; cursor:pointer; }
+.star-path-toggle button.path-active { background:#17313a; color:#c3e2e3; }
+.stellar-track { position:relative; display:grid; grid-template-columns:repeat(6,minmax(0,1fr)); gap:8px; margin-top:22px; }
+.stellar-track::before { position:absolute; top:26px; right:7%; left:7%; height:1px; background:#7698a333; content:""; }
+.stellar-stage { position:relative; z-index:1; display:flex; min-width:0; flex-direction:column; align-items:center; border:1px solid transparent; background:transparent; padding:8px 5px 10px; color:#8e9eaa; text-align:center; cursor:pointer; }
+.stellar-stage:hover,.stellar-stage.stellar-selected { border-color:#ffffff18; background:#111c26; }
+.stage-orb { display:grid; width:36px; height:36px; place-items:center; border:1px solid #7698a344; border-radius:50%; background:#111b25; }
+.stage-orb i { display:block; width:12px; height:12px; border-radius:50%; background:radial-gradient(circle at 32% 28%,#f4deb0,#bc8258); box-shadow:0 0 10px #d2ad6040; }
+.stage-0 i { background:#918da4; }.stage-1 i { background:#dbb57d; }.stage-2 i { background:#e6ca79; }.stage-3 i { background:#c66d55; }.stage-4 i { background:#b489c0; }.stage-5 i { background:#89a7d4; }
+.stellar-selected .stage-orb { border-color:#83c4ca; box-shadow:0 0 0 3px #5aaab422; }.stellar-selected .stage-step { color:#82c7cc; }
+.stage-step { margin-top:9px; color:#657785; font:9px ui-monospace,monospace; }.stellar-stage>b { display:block; margin-top:5px; color:#c3cdd4; font-size:10px; font-weight:550; line-height:1.4; }
+.stellar-detail { display:grid; grid-template-columns:1fr auto; gap:6px 16px; margin-top:13px; border-left:2px solid #b69d5b; background:#191a16; padding:13px 15px; }
+.stellar-detail>span { display:flex; align-items:center; gap:6px; color:#c5aa6b; font-size:9px; font-weight:700; letter-spacing:.12em; }.stellar-detail>b { grid-column:1; color:#e3d8b8; font-size:14px; }.stellar-detail>p { grid-column:1; margin:0; color:#aab3b5; font-size:11px; line-height:1.6; }.stellar-detail>small { grid-column:2; grid-row:1 / span 3; align-self:center; color:#8a7b56; font-size:8px; letter-spacing:.1em; text-align:right; }
+.star-footnote { margin:12px 0 0; color:#71828e; font-size:10px; line-height:1.6; }
+.reading-mark { border:1px solid #ffffff1c; padding:8px 10px; color:#8ca5b4; font-size:9px; letter-spacing:.14em; }
+.reading-links { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:8px; margin-top:18px; }
+.reading-link { display:flex; min-height:78px; align-items:center; gap:10px; border:1px solid #ffffff13; background:#0a1119; padding:11px; color:#81929e; text-decoration:none; }
+.reading-link:hover { border-color:#5daeb655; background:#111e27; color:#c0d2da; }
+.reading-link-mark { display:grid; width:30px; height:30px; flex:none; place-items:center; border:1px solid #ffffff15; color:#87c1c7; }
+.reading-link-copy { min-width:0; flex:1; }.reading-link-copy b,.reading-link-copy small { display:block; }.reading-link-copy b { color:#d1dce2; font-size:10px; font-weight:600; }.reading-link-copy small { margin-top:4px; color:#7b8b96; font-size:9px; line-height:1.4; }
+.motion-enabled .stellar-selected .stage-orb { animation: stage-highlight 1.5s ease-in-out infinite alternate; }
+@keyframes stage-highlight { from { box-shadow:0 0 0 2px #59a9b211; } to { box-shadow:0 0 0 5px #59a9b233; } }
+@media(max-width:950px) { .reading-links { grid-template-columns:repeat(2,minmax(0,1fr)); }.stellar-track { grid-template-columns:repeat(3,minmax(0,1fr)); }.stellar-track::before { display:none; } }
+@media(max-width:600px) { .star-lab,.reading-panel { padding:16px; }.star-lab-header,.reading-header { align-items:flex-start; flex-direction:column; }.star-path-toggle { width:100%; }.star-path-toggle button { flex:1; }.stellar-track { grid-template-columns:repeat(2,minmax(0,1fr)); }.stellar-detail { grid-template-columns:1fr; }.stellar-detail>small { grid-column:1; grid-row:auto; text-align:left; }.reading-links { grid-template-columns:1fr; } }
